@@ -31,6 +31,15 @@
   min-width: 0;
   padding: 8px;
 }
+.link {
+  position: relative;
+  text-align: left;
+  align-self: flex-start;
+  font-size: 30px;
+  max-width: 90px;
+  width: 100%;
+  min-width: 0;
+}
 .img {
   object-fit: cover;
   max-width: 100%;

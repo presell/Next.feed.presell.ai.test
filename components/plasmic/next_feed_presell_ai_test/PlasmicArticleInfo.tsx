@@ -55,6 +55,7 @@ export type PlasmicArticleInfo__OverridesType = {
   root?: p.Flex<"div">;
   httpApiFetcher?: p.Flex<typeof DataFetcher>;
   freeBox?: p.Flex<"div">;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
   img?: p.Flex<typeof p.PlasmicImg>;
   heroSubHeadline?: p.Flex<"div">;
   text?: p.Flex<"div">;
@@ -184,6 +185,22 @@ function PlasmicArticleInfo__RenderFunc(props: {
                     data-plasmic-override={overrides.freeBox}
                     className={classNames(projectcss.all, sty.freeBox)}
                   >
+                    <p.PlasmicLink
+                      data-plasmic-name={"link"}
+                      data-plasmic-override={overrides.link}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        projectcss.__wab_text,
+                        sty.link
+                      )}
+                      component={Link}
+                      href={`/blog-landing`}
+                      platform={"nextjs"}
+                    >
+                      {"Back"}
+                    </p.PlasmicLink>
+
                     <p.PlasmicImg
                       data-plasmic-name={"img"}
                       data-plasmic-override={overrides.img}
@@ -630,6 +647,7 @@ const PlasmicDescendants = {
     "root",
     "httpApiFetcher",
     "freeBox",
+    "link",
     "img",
     "heroSubHeadline",
     "text",
@@ -653,6 +671,7 @@ const PlasmicDescendants = {
   httpApiFetcher: [
     "httpApiFetcher",
     "freeBox",
+    "link",
     "img",
     "heroSubHeadline",
     "text",
@@ -675,6 +694,7 @@ const PlasmicDescendants = {
   ],
   freeBox: [
     "freeBox",
+    "link",
     "img",
     "heroSubHeadline",
     "text",
@@ -694,6 +714,7 @@ const PlasmicDescendants = {
     "paragraph7",
     "image7"
   ],
+  link: ["link"],
   img: ["img"],
   heroSubHeadline: ["heroSubHeadline"],
   text: ["text"],
@@ -721,6 +742,7 @@ type NodeDefaultElementType = {
   root: "div";
   httpApiFetcher: typeof DataFetcher;
   freeBox: "div";
+  link: "a";
   img: typeof p.PlasmicImg;
   heroSubHeadline: "div";
   text: "div";
@@ -805,6 +827,7 @@ export const PlasmicArticleInfo = Object.assign(
     // Helper components rendering sub-elements
     httpApiFetcher: makeNodeComponent("httpApiFetcher"),
     freeBox: makeNodeComponent("freeBox"),
+    link: makeNodeComponent("link"),
     img: makeNodeComponent("img"),
     heroSubHeadline: makeNodeComponent("heroSubHeadline"),
     text: makeNodeComponent("text"),
